@@ -3,14 +3,15 @@ class Solution:
         """
         Do not return anything, modify nums in-place instead.
         """
-        i = 0
-        zero_count = 0
-        while i < len(nums):
-            if nums[i] == 0:
-                nums.pop(i)
-                zero_count += 1
-                continue
-            i += 1
-        for i in range(zero_count):
-            nums.append(0)
+        l_p = 0
+        r_p = 0
+        for i in range(len(nums)):
+            if nums[r_p] == 0:
+                r_p += 1
+            else:
+                temp: int = nums[l_p]
+                nums[l_p] = nums[r_p]
+                nums[r_p] = temp
+                l_p += 1
+                r_p += 1
         
